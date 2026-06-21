@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B Kishore Raja | Designer Portfolio</title>
+  <meta name="description" content="B Kishore Raja – Creative Designer. Crafting beautiful digital experiences through art, design, and innovation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NOISE OVERLAY ===== -->
+  <div class="noise-overlay"></div>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- ===== CANVAS BG ===== -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ============================================================
+       PORTFOLIO
+  ============================================================ -->
+  <div class="portfolio" id="portfolio">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">BKR<span class="nav-dot">.</span></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-text">DESIGN</div>
+      <div class="hero-content">
+        <div class="hero-label">
+          <span class="pulse-dot"></span> Available for freelance
+        </div>
+        <h1 class="hero-name">
+          <span class="line">B Kishore</span>
+          <span class="line accent-line"><em>Raja</em></span>
+        </h1>
+        <div class="hero-role">
+          <span>Creative</span>
+          <div class="role-slider" id="role-slider">
+            <span class="role-word">UI Designer</span>
+            <span class="role-word">UX Strategist</span>
+            <span class="role-word">Brand Architect</span>
+            <span class="role-word">Visual Artist</span>
+          </div>
+        </div>
+        <p class="hero-desc">
+          I craft immersive digital experiences that blend beauty with purpose —
+          turning complex ideas into elegant, human-centered designs.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="cta-primary" id="see-work-cta">
+            See My Work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="cta-secondary" id="hire-cta">Hire Me</a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat"><span class="h-num" data-target="50">0</span><span>+</span><small>Projects</small></div>
+          <div class="h-divider"></div>
+          <div class="h-stat"><span class="h-num" data-target="3">0</span><span>+</span><small>Years Exp.</small></div>
+          <div class="h-divider"></div>
+          <div class="h-stat"><span class="h-num" data-target="30">0</span><span>+</span><small>Happy Clients</small></div>
+        </div>
+      </div>
+      <div class="hero-visual-wrap">
+        <div class="avatar-orbit" id="hero-avatar">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r3"></div>
+          <div class="orbit-dot d1">🎨</div>
+          <div class="orbit-dot d2">✏️</div>
+          <div class="orbit-dot d3">🖥️</div>
+          <div class="orbit-dot d4">💡</div>
+          <div class="avatar-core">
+            <span>BKR</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-tag fade-in">about me</div>
+        <div class="about-grid">
+          <div class="about-left fade-in">
+            <h2 class="sec-title">Designing the future,<br/><span class="accent">one pixel</span> at a time.</h2>
+            <p class="about-para">
+              Hey! I'm <strong>B Kishore Raja</strong>, a passionate UI/UX Designer from India 🇮🇳.
+              I believe that great design is invisible — it just works, feels right, and makes people's
+              lives better without them even noticing.
+            </p>
+            <p class="about-para">
+              With a sharp eye for detail and a deep love for aesthetics, I transform wireframes
+              into pixel-perfect interfaces. I blend creativity with user psychology to build
+              designs that truly connect.
+            </p>
+            <div class="about-badges">
+              <span class="badge">🎯 User-Centered</span>
+              <span class="badge">🎨 Figma Expert</span>
+              <span class="badge">💡 Creative Direction</span>
+              <span class="badge">🔥 Dark UI Specialist</span>
+              <span class="badge">📐 Design Systems</span>
+            </div>
+          </div>
+          <div class="about-right fade-in">
+            <div class="skills-visual">
+              <div class="skill-bar-item">
+                <div class="sb-info"><span>UI Design</span><span>95%</span></div>
+                <div class="sb-track"><div class="sb-fill" data-width="95"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="sb-info"><span>UX Research</span><span>88%</span></div>
+                <div class="sb-track"><div class="sb-fill" data-width="88"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="sb-info"><span>Figma / Adobe XD</span><span>92%</span></div>
+                <div class="sb-track"><div class="sb-fill" data-width="92"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="sb-info"><span>Brand Identity</span><span>85%</span></div>
+                <div class="sb-track"><div class="sb-fill" data-width="85"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="sb-info"><span>Motion Design</span><span>78%</span></div>
+                <div class="sb-track"><div class="sb-fill" data-width="78"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="sb-info"><span>Prototyping</span><span>90%</span></div>
+                <div class="sb-track"><div class="sb-fill" data-width="90"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK / PROJECTS -->
+    <section class="work-section" id="work">
+      <div class="container">
+        <div class="section-tag fade-in">selected work</div>
+        <h2 class="sec-title fade-in">Projects that <span class="accent">speak</span>.</h2>
+
+        <div class="work-filters fade-in">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ui">UI Design</button>
+          <button class="filter-btn" data-filter="brand">Branding</button>
+          <button class="filter-btn" data-filter="ux">UX</button>
+        </div>
+
+        <div class="work-grid">
+          <div class="work-card big fade-in" data-cat="ui" id="proj-1">
+            <div class="wc-bg" style="background: linear-gradient(135deg,#7c3aed,#4f46e5)"></div>
+            <div class="wc-content">
+              <div class="wc-tag">UI Design</div>
+              <h3>FinTech Dashboard</h3>
+              <p>A next-gen financial analytics platform with immersive dark UI, real-time data viz, and seamless UX flows.</p>
+              <div class="wc-footer">
+                <span class="wc-tools">Figma · Principle</span>
+                <a href="#" class="wc-arrow">→</a>
+              </div>
+            </div>
+            <div class="wc-mockup">📊</div>
+          </div>
+
+          <div class="work-card fade-in" data-cat="brand" id="proj-2">
+            <div class="wc-bg" style="background: linear-gradient(135deg,#db2777,#9333ea)"></div>
+            <div class="wc-content">
+              <div class="wc-tag">Branding</div>
+              <h3>Luxe Brand Identity</h3>
+              <p>Full brand system for a luxury lifestyle brand — logo, palette, typography, and guidelines.</p>
+              <div class="wc-footer">
+                <span class="wc-tools">Illustrator · Photoshop</span>
+                <a href="#" class="wc-arrow">→</a>
+              </div>
+            </div>
+            <div class="wc-mockup">✨</div>
+          </div>
+
+          <div class="work-card fade-in" data-cat="ux" id="proj-3">
+            <div class="wc-bg" style="background: linear-gradient(135deg,#0ea5e9,#06b6d4)"></div>
+            <div class="wc-content">
+              <div class="wc-tag">UX Design</div>
+              <h3>Health App Redesign</h3>
+              <p>End-to-end UX overhaul — user research, journey maps, wireframes to a polished final product.</p>
+              <div class="wc-footer">
+                <span class="wc-tools">Figma · Maze</span>
+                <a href="#" class="wc-arrow">→</a>
+              </div>
+            </div>
+            <div class="wc-mockup">🏥</div>
+          </div>
+
+          <div class="work-card fade-in" data-cat="ui" id="proj-4">
+            <div class="wc-bg" style="background: linear-gradient(135deg,#f59e0b,#ef4444)"></div>
+            <div class="wc-content">
+              <div class="wc-tag">UI Design</div>
+              <h3>E-Learning Platform</h3>
+              <p>Modern, engaging learning platform design with gamification, progress tracking, and dark UI.</p>
+              <div class="wc-footer">
+                <span class="wc-tools">Figma · After Effects</span>
+                <a href="#" class="wc-arrow">→</a>
+              </div>
+            </div>
+            <div class="wc-mockup">📚</div>
+          </div>
+
+          <div class="work-card fade-in" data-cat="brand" id="proj-5">
+            <div class="wc-bg" style="background: linear-gradient(135deg,#10b981,#3b82f6)"></div>
+            <div class="wc-content">
+              <div class="wc-tag">Branding</div>
+              <h3>Startup Visual Identity</h3>
+              <p>Bold and minimal brand identity for a tech startup — crafted to stand out in a crowded market.</p>
+              <div class="wc-footer">
+                <span class="wc-tools">Illustrator · Figma</span>
+                <a href="#" class="wc-arrow">→</a>
+              </div>
+            </div>
+            <div class="wc-mockup">🚀</div>
+          </div>
+
+          <div class="work-card big fade-in" data-cat="ux" id="proj-6">
+            <div class="wc-bg" style="background: linear-gradient(135deg,#6366f1,#ec4899)"></div>
+            <div class="wc-content">
+              <div class="wc-tag">UX + UI</div>
+              <h3>Social Media App</h3>
+              <p>From zero to launch — complete UX strategy, high-fidelity UI, and interactive prototype for a social platform that connects creatives worldwide.</p>
+              <div class="wc-footer">
+                <span class="wc-tools">Figma · Protopie · Lottie</span>
+                <a href="#" class="wc-arrow">→</a>
+              </div>
+            </div>
+            <div class="wc-mockup">🌐</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-tag fade-in">what i do</div>
+        <h2 class="sec-title fade-in">Services I <span class="accent">offer</span>.</h2>
+        <div class="services-grid">
+          <div class="service-card fade-in" id="svc-1">
+            <div class="svc-icon">🎨</div>
+            <h3>UI Design</h3>
+            <p>Pixel-perfect, visually stunning interfaces that captivate users and reinforce your brand identity.</p>
+            <ul class="svc-list">
+              <li>App & Web UI</li>
+              <li>Design Systems</li>
+              <li>Dark Mode UI</li>
+            </ul>
+          </div>
+          <div class="service-card fade-in" id="svc-2">
+            <div class="svc-icon">🔍</div>
+            <h3>UX Research</h3>
+            <p>Deep user research, journey mapping, and usability testing to design with empathy and precision.</p>
+            <ul class="svc-list">
+              <li>User Interviews</li>
+              <li>Usability Testing</li>
+              <li>Journey Mapping</li>
+            </ul>
+          </div>
+          <div class="service-card fade-in" id="svc-3">
+            <div class="svc-icon">🏷️</div>
+            <h3>Brand Identity</h3>
+            <p>Cohesive brand systems — from logo creation to full visual guidelines that tell your story.</p>
+            <ul class="svc-list">
+              <li>Logo Design</li>
+              <li>Brand Guidelines</li>
+              <li>Visual Language</li>
+            </ul>
+          </div>
+          <div class="service-card fade-in" id="svc-4">
+            <div class="svc-icon">⚡</div>
+            <h3>Prototyping</h3>
+            <p>Interactive, clickable prototypes that communicate your vision clearly to stakeholders and developers.</p>
+            <ul class="svc-list">
+              <li>Figma Prototypes</li>
+              <li>Micro-animations</li>
+              <li>User Flows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-tag fade-in">get in touch</div>
+        <div class="contact-wrap fade-in">
+          <div class="contact-left">
+            <h2 class="sec-title">Let's create something<br/><span class="accent">amazing</span> together.</h2>
+            <p class="contact-para">Have a project in mind? Looking for a designer to bring your vision to life? I'm just a message away!</p>
+            <div class="contact-links">
+              <a href="mailto:vairaikishore123@gmail.com" class="c-link" id="email-link">
+                <span class="c-link-icon">📧</span>
+                <span>vairaikishore123@gmail.com</span>
+              </a>
+              <a href="https://www.linkedin.com/in/kishore-raja-4591622b1" target="_blank" rel="noopener noreferrer" class="c-link" id="linkedin-c-link">
+                <span class="c-link-icon">💼</span>
+                <span>linkedin.com/in/kishore-raja-4591622b1</span>
+              </a>
+              <a href="https://github.com/kishore123-max" target="_blank" rel="noopener noreferrer" class="c-link" id="github-c-link">
+                <span class="c-link-icon">🐙</span>
+                <span>github.com/kishore123-max</span>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="cf-group">
+              <input type="text" id="cf-name" placeholder=" " required />
+              <label for="cf-name">Your Name</label>
+            </div>
+            <div class="cf-group">
+              <input type="email" id="cf-email" placeholder=" " required />
+              <label for="cf-email">Email Address</label>
+            </div>
+            <div class="cf-group">
+              <select id="cf-service">
+                <option value="">Select a service</option>
+                <option>UI Design</option>
+                <option>UX Research</option>
+                <option>Brand Identity</option>
+                <option>Prototyping</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="cf-group">
+              <textarea id="cf-message" placeholder=" " rows="4" required></textarea>
+              <label for="cf-message">Your Message</label>
+            </div>
+            <button type="submit" class="cf-submit" id="cf-submit-btn">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+            <div class="cf-success" id="cf-success">✅ Message sent! I'll reply within 24 hours.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-logo">BKR<span class="nav-dot">.</span></div>
+          <p class="footer-copy">© 2025 B Kishore Raja. Crafted with ❤️ and lots of ☕</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/kishore-raja-4591622b1" target="_blank" rel="noopener noreferrer" id="f-linkedin" aria-label="LinkedIn">Li</a>
+            <a href="https://github.com/kishore123-max" target="_blank" rel="noopener noreferrer" id="f-github" aria-label="GitHub">Gh</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- end .portfolio -->
+
+  <script src="script.js"></script>
+</body>
+</html>
