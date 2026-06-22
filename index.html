@@ -1,387 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>B Kishore Raja | Designer Portfolio</title>
-  <meta name="description" content="B Kishore Raja – Creative Designer. Crafting beautiful digital experiences through art, design, and innovation." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B Kishore Raja — Creative Brand Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: rgba(255,255,255,0.08);
+    --text: #f0eeff;
+    --muted: rgba(240,238,255,0.55);
+    --purple: #9b6dff;
+    --pink: #e040fb;
+    --gradient: linear-gradient(135deg, #9b6dff 0%, #e040fb 100%);
+    --nav-h: 70px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .logo span { color: var(--purple); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.25s;
+    position: relative;
+  }
+  .nav-links a.active,
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+    background: var(--gradient); border-radius: 2px;
+  }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: var(--nav-h) 5% 0;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%; max-width: 1280px; margin: 0 auto;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem; color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  .badge-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74,222,128,0.2);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.2); }
+    50% { box-shadow: 0 0 0 6px rgba(74,222,128,0.05); }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.05;
+    margin-bottom: 0.3rem;
+  }
+  .hero-title .name-first {
+    font-size: clamp(3rem, 6vw, 5rem);
+    display: block; color: var(--text);
+  }
+  .hero-title .name-last {
+    font-size: clamp(3rem, 6vw, 5rem);
+    display: block;
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-roles {
+    margin: 1rem 0 1.5rem;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .role-line {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 1rem; font-weight: 500;
+  }
+  .role-line .prefix { color: var(--muted); }
+  .role-label { color: var(--purple); }
+
+  .hero-bio {
+    color: var(--muted); font-size: 1rem; line-height: 1.75;
+    max-width: 480px; margin-bottom: 2.5rem;
+  }
+
+  .cta-group { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px;
+    background: var(--gradient); color: #fff;
+    border: none; border-radius: 10px;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px;
+    background: transparent; color: var(--text);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    font-size: 0.95rem; font-weight: 500; cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--purple); background: rgba(155,109,255,0.08); }
+
+  /* ── HERO VISUAL ── */
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    position: relative; height: 420px;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+  .ring-1 { width: 340px; height: 340px; }
+  .ring-2 { width: 240px; height: 240px; border-style: dashed; opacity: 0.5; }
+
+  .avatar-core {
+    width: 140px; height: 140px; border-radius: 50%;
+    background: var(--gradient);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+  }
+  .avatar-core span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700; color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  .orbit-icon {
+    position: absolute;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; z-index: 3;
+  }
+  .icon-top    { top: 30px;  left: 50%; transform: translateX(-50%); }
+  .icon-right  { right: 30px; top: 50%; transform: translateY(-50%); }
+  .icon-bottom { bottom: 30px; left: 50%; transform: translateX(-50%); }
+  .icon-left   { left: 30px;  top: 50%; transform: translateY(-50%); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 5%; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--purple);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .section-body { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 560px; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--surface); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+  .stat-row { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
+  .tag {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.82rem; color: var(--muted);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .tag:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* ── WORK ── */
+  #work .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .project-card:hover { border-color: rgba(155,109,255,0.4); transform: translateY(-4px); }
+
+  .project-thumb {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    position: relative; overflow: hidden;
+  }
+  .project-thumb::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--surface));
+  }
+
+  .thumb-1 { background: linear-gradient(135deg, #1a0533, #3d1066); }
+  .thumb-2 { background: linear-gradient(135deg, #001a33, #003366); }
+  .thumb-3 { background: linear-gradient(135deg, #1a0022, #4d006e); }
+
+  .project-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .project-meta { font-size: 0.75rem; color: var(--purple); font-weight: 500; margin-bottom: 6px; letter-spacing: 0.08em; }
+  .project-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+  .project-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+  .project-footer {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 0 1.5rem 1.5rem;
+  }
+  .chip {
+    padding: 4px 12px;
+    background: rgba(155,109,255,0.1);
+    border-radius: 100px;
+    font-size: 0.75rem; color: var(--purple);
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--surface); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+
+  .service-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem;
+    transition: border-color 0.25s;
+  }
+  .service-card:hover { border-color: rgba(155,109,255,0.35); }
+
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: rgba(155,109,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1.25rem;
+  }
+  .service-name { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+  .service-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── CONTACT ── */
+  #contact { text-align: center; }
+  .contact-inner { max-width: 640px; margin: 0 auto; }
+  .contact-inner .section-body { margin: 0 auto 2.5rem; }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px; padding: 2.5rem;
+    text-align: left; margin-top: 3rem;
+  }
+  .contact-card form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+  .field input, .field textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.9rem;
+    padding: 12px 16px;
+    outline: none; resize: vertical;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field textarea:focus { border-color: var(--purple); }
+  .field textarea { min-height: 110px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 5%;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+  }
+  .footer-logo span { color: var(--purple); }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+
+  .social-links { display: flex; gap: 1rem; }
+  .social-links a {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); text-decoration: none; font-size: 0.85rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-links a:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 70px 5%; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
 </head>
 <body>
 
-  <!-- ===== NOISE OVERLAY ===== -->
-  <div class="noise-overlay"></div>
+<!-- NAV -->
+<nav>
+  <div class="logo">BKR<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- ===== CURSOR ===== -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-glow" id="cursor-glow"></div>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="badge reveal">
+        <span class="badge-dot"></span>
+        Available for freelance
+      </div>
 
-  <!-- ===== CANVAS BG ===== -->
-  <canvas id="bg-canvas"></canvas>
+      <h1 class="hero-title reveal">
+        <span class="name-first">B Kishore</span>
+        <span class="name-last">Raja</span>
+      </h1>
 
-  <!-- ============================================================
-       PORTFOLIO
-  ============================================================ -->
-  <div class="portfolio" id="portfolio">
-
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-logo">BKR<span class="nav-dot">.</span></div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#work" class="nav-link">Work</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle nav">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero-section" id="hero">
-      <div class="hero-bg-text">DESIGN</div>
-      <div class="hero-content">
-        <div class="hero-label">
-          <span class="pulse-dot"></span> Available for freelance
+      <div class="hero-roles reveal">
+        <div class="role-line">
+          <span class="prefix">Creative</span>
+          <span class="role-label">Brand Architect</span>
         </div>
-        <h1 class="hero-name">
-          <span class="line">B Kishore</span>
-          <span class="line accent-line"><em>Raja</em></span>
-        </h1>
-        <div class="hero-role">
-          <span>Creative</span>
-          <div class="role-slider" id="role-slider">
-            <span class="role-word">UI Designer</span>
-            <span class="role-word">UX Strategist</span>
-            <span class="role-word">Brand Architect</span>
-            <span class="role-word">Visual Artist</span>
-          </div>
-        </div>
-        <p class="hero-desc">
-          I craft immersive digital experiences that blend beauty with purpose —
-          turning complex ideas into elegant, human-centered designs.
-        </p>
-        <div class="hero-actions">
-          <a href="#work" class="cta-primary" id="see-work-cta">
-            See My Work
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#contact" class="cta-secondary" id="hire-cta">Hire Me</a>
-        </div>
-        <div class="hero-stats">
-          <div class="h-stat"><span class="h-num" data-target="50">0</span><span>+</span><small>Projects</small></div>
-          <div class="h-divider"></div>
-          <div class="h-stat"><span class="h-num" data-target="3">0</span><span>+</span><small>Years Exp.</small></div>
-          <div class="h-divider"></div>
-          <div class="h-stat"><span class="h-num" data-target="30">0</span><span>+</span><small>Happy Clients</small></div>
+        <div class="role-line">
+          <span class="role-label">Visual Artist</span>
         </div>
       </div>
-      <div class="hero-visual-wrap">
-        <div class="avatar-orbit" id="hero-avatar">
-          <div class="orbit-ring r1"></div>
-          <div class="orbit-ring r2"></div>
-          <div class="orbit-ring r3"></div>
-          <div class="orbit-dot d1">🎨</div>
-          <div class="orbit-dot d2">✏️</div>
-          <div class="orbit-dot d3">🖥️</div>
-          <div class="orbit-dot d4">💡</div>
-          <div class="avatar-core">
-            <span>BKR</span>
-          </div>
+
+      <p class="hero-bio reveal">
+        I craft immersive digital experiences that blend beauty with purpose —
+        turning complex ideas into elegant, human-centered designs.
+      </p>
+
+      <div class="cta-group reveal">
+        <a href="#work" class="btn-primary">See My Work →</a>
+        <a href="#contact" class="btn-outline">Hire Me</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="avatar-core"><span>BKR</span></div>
+      <div class="orbit-icon icon-top">🎨</div>
+      <div class="orbit-icon icon-right">✏️</div>
+      <div class="orbit-icon icon-bottom">🖥️</div>
+      <div class="orbit-icon icon-left">💡</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner about-grid">
+    <div class="reveal">
+      <p class="eyebrow">About Me</p>
+      <h2 class="section-title">Crafting Stories Through Design</h2>
+      <p class="section-body">
+        With over 5 years in brand design and visual storytelling, I specialize in creating experiences that resonate deeply. My work bridges the gap between strategy and aesthetics — every pixel serves a purpose.
+      </p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Projects Delivered</span></div>
+        <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Happy Clients</span></div>
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Skills & Tools</p>
+      <div class="skill-tags">
+        <span class="tag">Brand Identity</span>
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Motion Graphics</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Adobe Suite</span>
+        <span class="tag">Typography</span>
+        <span class="tag">Visual Storytelling</span>
+        <span class="tag">Web Design</span>
+        <span class="tag">Packaging</span>
+        <span class="tag">Illustration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom: 1rem;">
+      <p class="eyebrow">Selected Work</p>
+      <h2 class="section-title">Projects That Tell a Story</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-thumb thumb-1">🌌</div>
+        <div class="project-body">
+          <p class="project-meta">Brand Identity · 2024</p>
+          <h3 class="project-name">Luminary Brand System</h3>
+          <p class="project-desc">A complete brand overhaul for a tech startup — logo, color language, typography, and visual guidelines.</p>
+        </div>
+        <div class="project-footer">
+          <span class="chip">Branding</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Identity</span>
         </div>
       </div>
-      <div class="scroll-hint">
-        <div class="scroll-line"></div>
-        <span>scroll</span>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="section-tag fade-in">about me</div>
-        <div class="about-grid">
-          <div class="about-left fade-in">
-            <h2 class="sec-title">Designing the future,<br/><span class="accent">one pixel</span> at a time.</h2>
-            <p class="about-para">
-              Hey! I'm <strong>B Kishore Raja</strong>, a passionate UI/UX Designer from India 🇮🇳.
-              I believe that great design is invisible — it just works, feels right, and makes people's
-              lives better without them even noticing.
-            </p>
-            <p class="about-para">
-              With a sharp eye for detail and a deep love for aesthetics, I transform wireframes
-              into pixel-perfect interfaces. I blend creativity with user psychology to build
-              designs that truly connect.
-            </p>
-            <div class="about-badges">
-              <span class="badge">🎯 User-Centered</span>
-              <span class="badge">🎨 Figma Expert</span>
-              <span class="badge">💡 Creative Direction</span>
-              <span class="badge">🔥 Dark UI Specialist</span>
-              <span class="badge">📐 Design Systems</span>
-            </div>
-          </div>
-          <div class="about-right fade-in">
-            <div class="skills-visual">
-              <div class="skill-bar-item">
-                <div class="sb-info"><span>UI Design</span><span>95%</span></div>
-                <div class="sb-track"><div class="sb-fill" data-width="95"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="sb-info"><span>UX Research</span><span>88%</span></div>
-                <div class="sb-track"><div class="sb-fill" data-width="88"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="sb-info"><span>Figma / Adobe XD</span><span>92%</span></div>
-                <div class="sb-track"><div class="sb-fill" data-width="92"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="sb-info"><span>Brand Identity</span><span>85%</span></div>
-                <div class="sb-track"><div class="sb-fill" data-width="85"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="sb-info"><span>Motion Design</span><span>78%</span></div>
-                <div class="sb-track"><div class="sb-fill" data-width="78"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="sb-info"><span>Prototyping</span><span>90%</span></div>
-                <div class="sb-track"><div class="sb-fill" data-width="90"></div></div>
-              </div>
-            </div>
-          </div>
+      <div class="project-card reveal">
+        <div class="project-thumb thumb-2">🔷</div>
+        <div class="project-body">
+          <p class="project-meta">UI/UX Design · 2024</p>
+          <h3 class="project-name">Nexus Dashboard</h3>
+          <p class="project-desc">Analytics dashboard redesign for a SaaS platform — improving clarity and reducing cognitive load.</p>
+        </div>
+        <div class="project-footer">
+          <span class="chip">UI/UX</span>
+          <span class="chip">Dashboard</span>
+          <span class="chip">Prototype</span>
         </div>
       </div>
-    </section>
 
-    <!-- WORK / PROJECTS -->
-    <section class="work-section" id="work">
-      <div class="container">
-        <div class="section-tag fade-in">selected work</div>
-        <h2 class="sec-title fade-in">Projects that <span class="accent">speak</span>.</h2>
-
-        <div class="work-filters fade-in">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="ui">UI Design</button>
-          <button class="filter-btn" data-filter="brand">Branding</button>
-          <button class="filter-btn" data-filter="ux">UX</button>
+      <div class="project-card reveal">
+        <div class="project-thumb thumb-3">💜</div>
+        <div class="project-body">
+          <p class="project-meta">Visual Art · 2023</p>
+          <h3 class="project-name">Eclipse Series</h3>
+          <p class="project-desc">A collection of digital illustrations exploring the boundary between light and shadow.</p>
         </div>
-
-        <div class="work-grid">
-          <div class="work-card big fade-in" data-cat="ui" id="proj-1">
-            <div class="wc-bg" style="background: linear-gradient(135deg,#7c3aed,#4f46e5)"></div>
-            <div class="wc-content">
-              <div class="wc-tag">UI Design</div>
-              <h3>FinTech Dashboard</h3>
-              <p>A next-gen financial analytics platform with immersive dark UI, real-time data viz, and seamless UX flows.</p>
-              <div class="wc-footer">
-                <span class="wc-tools">Figma · Principle</span>
-                <a href="#" class="wc-arrow">→</a>
-              </div>
-            </div>
-            <div class="wc-mockup">📊</div>
-          </div>
-
-          <div class="work-card fade-in" data-cat="brand" id="proj-2">
-            <div class="wc-bg" style="background: linear-gradient(135deg,#db2777,#9333ea)"></div>
-            <div class="wc-content">
-              <div class="wc-tag">Branding</div>
-              <h3>Luxe Brand Identity</h3>
-              <p>Full brand system for a luxury lifestyle brand — logo, palette, typography, and guidelines.</p>
-              <div class="wc-footer">
-                <span class="wc-tools">Illustrator · Photoshop</span>
-                <a href="#" class="wc-arrow">→</a>
-              </div>
-            </div>
-            <div class="wc-mockup">✨</div>
-          </div>
-
-          <div class="work-card fade-in" data-cat="ux" id="proj-3">
-            <div class="wc-bg" style="background: linear-gradient(135deg,#0ea5e9,#06b6d4)"></div>
-            <div class="wc-content">
-              <div class="wc-tag">UX Design</div>
-              <h3>Health App Redesign</h3>
-              <p>End-to-end UX overhaul — user research, journey maps, wireframes to a polished final product.</p>
-              <div class="wc-footer">
-                <span class="wc-tools">Figma · Maze</span>
-                <a href="#" class="wc-arrow">→</a>
-              </div>
-            </div>
-            <div class="wc-mockup">🏥</div>
-          </div>
-
-          <div class="work-card fade-in" data-cat="ui" id="proj-4">
-            <div class="wc-bg" style="background: linear-gradient(135deg,#f59e0b,#ef4444)"></div>
-            <div class="wc-content">
-              <div class="wc-tag">UI Design</div>
-              <h3>E-Learning Platform</h3>
-              <p>Modern, engaging learning platform design with gamification, progress tracking, and dark UI.</p>
-              <div class="wc-footer">
-                <span class="wc-tools">Figma · After Effects</span>
-                <a href="#" class="wc-arrow">→</a>
-              </div>
-            </div>
-            <div class="wc-mockup">📚</div>
-          </div>
-
-          <div class="work-card fade-in" data-cat="brand" id="proj-5">
-            <div class="wc-bg" style="background: linear-gradient(135deg,#10b981,#3b82f6)"></div>
-            <div class="wc-content">
-              <div class="wc-tag">Branding</div>
-              <h3>Startup Visual Identity</h3>
-              <p>Bold and minimal brand identity for a tech startup — crafted to stand out in a crowded market.</p>
-              <div class="wc-footer">
-                <span class="wc-tools">Illustrator · Figma</span>
-                <a href="#" class="wc-arrow">→</a>
-              </div>
-            </div>
-            <div class="wc-mockup">🚀</div>
-          </div>
-
-          <div class="work-card big fade-in" data-cat="ux" id="proj-6">
-            <div class="wc-bg" style="background: linear-gradient(135deg,#6366f1,#ec4899)"></div>
-            <div class="wc-content">
-              <div class="wc-tag">UX + UI</div>
-              <h3>Social Media App</h3>
-              <p>From zero to launch — complete UX strategy, high-fidelity UI, and interactive prototype for a social platform that connects creatives worldwide.</p>
-              <div class="wc-footer">
-                <span class="wc-tools">Figma · Protopie · Lottie</span>
-                <a href="#" class="wc-arrow">→</a>
-              </div>
-            </div>
-            <div class="wc-mockup">🌐</div>
-          </div>
+        <div class="project-footer">
+          <span class="chip">Illustration</span>
+          <span class="chip">Art</span>
+          <span class="chip">Series</span>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- SERVICES -->
-    <section class="services-section" id="services">
-      <div class="container">
-        <div class="section-tag fade-in">what i do</div>
-        <h2 class="sec-title fade-in">Services I <span class="accent">offer</span>.</h2>
-        <div class="services-grid">
-          <div class="service-card fade-in" id="svc-1">
-            <div class="svc-icon">🎨</div>
-            <h3>UI Design</h3>
-            <p>Pixel-perfect, visually stunning interfaces that captivate users and reinforce your brand identity.</p>
-            <ul class="svc-list">
-              <li>App & Web UI</li>
-              <li>Design Systems</li>
-              <li>Dark Mode UI</li>
-            </ul>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom: 1rem;">
+      <p class="eyebrow">What I Do</p>
+      <h2 class="section-title">Services I Offer</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <h3 class="service-name">Brand Identity</h3>
+        <p class="service-desc">Logo design, visual systems, brand guidelines, and everything needed to build a memorable brand.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📱</div>
+        <h3 class="service-name">UI/UX Design</h3>
+        <p class="service-desc">User-centered digital interfaces with wireframes, prototypes, and pixel-perfect final designs.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">✏️</div>
+        <h3 class="service-name">Visual Art</h3>
+        <p class="service-desc">Custom illustration, digital art, and visual storytelling tailored to your brand's personality.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💡</div>
+        <h3 class="service-name">Creative Direction</h3>
+        <p class="service-desc">Strategic creative leadership for campaigns, product launches, and brand evolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="eyebrow">Get in Touch</p>
+      <h2 class="section-title">Let's Build Something Great</h2>
+      <p class="section-body">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+    </div>
+    <div class="contact-card reveal">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
           </div>
-          <div class="service-card fade-in" id="svc-2">
-            <div class="svc-icon">🔍</div>
-            <h3>UX Research</h3>
-            <p>Deep user research, journey mapping, and usability testing to design with empathy and precision.</p>
-            <ul class="svc-list">
-              <li>User Interviews</li>
-              <li>Usability Testing</li>
-              <li>Journey Mapping</li>
-            </ul>
-          </div>
-          <div class="service-card fade-in" id="svc-3">
-            <div class="svc-icon">🏷️</div>
-            <h3>Brand Identity</h3>
-            <p>Cohesive brand systems — from logo creation to full visual guidelines that tell your story.</p>
-            <ul class="svc-list">
-              <li>Logo Design</li>
-              <li>Brand Guidelines</li>
-              <li>Visual Language</li>
-            </ul>
-          </div>
-          <div class="service-card fade-in" id="svc-4">
-            <div class="svc-icon">⚡</div>
-            <h3>Prototyping</h3>
-            <p>Interactive, clickable prototypes that communicate your vision clearly to stakeholders and developers.</p>
-            <ul class="svc-list">
-              <li>Figma Prototypes</li>
-              <li>Micro-animations</li>
-              <li>User Flows</li>
-            </ul>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="section-tag fade-in">get in touch</div>
-        <div class="contact-wrap fade-in">
-          <div class="contact-left">
-            <h2 class="sec-title">Let's create something<br/><span class="accent">amazing</span> together.</h2>
-            <p class="contact-para">Have a project in mind? Looking for a designer to bring your vision to life? I'm just a message away!</p>
-            <div class="contact-links">
-              <a href="mailto:vairaikishore123@gmail.com" class="c-link" id="email-link">
-                <span class="c-link-icon">📧</span>
-                <span>vairaikishore123@gmail.com</span>
-              </a>
-              <a href="https://www.linkedin.com/in/kishore-raja-4591622b1" target="_blank" rel="noopener noreferrer" class="c-link" id="linkedin-c-link">
-                <span class="c-link-icon">💼</span>
-                <span>linkedin.com/in/kishore-raja-4591622b1</span>
-              </a>
-              <a href="https://github.com/kishore123-max" target="_blank" rel="noopener noreferrer" class="c-link" id="github-c-link">
-                <span class="c-link-icon">🐙</span>
-                <span>github.com/kishore123-max</span>
-              </a>
-            </div>
-          </div>
-          <form class="contact-form" id="contact-form">
-            <div class="cf-group">
-              <input type="text" id="cf-name" placeholder=" " required />
-              <label for="cf-name">Your Name</label>
-            </div>
-            <div class="cf-group">
-              <input type="email" id="cf-email" placeholder=" " required />
-              <label for="cf-email">Email Address</label>
-            </div>
-            <div class="cf-group">
-              <select id="cf-service">
-                <option value="">Select a service</option>
-                <option>UI Design</option>
-                <option>UX Research</option>
-                <option>Brand Identity</option>
-                <option>Prototyping</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="cf-group">
-              <textarea id="cf-message" placeholder=" " rows="4" required></textarea>
-              <label for="cf-message">Your Message</label>
-            </div>
-            <button type="submit" class="cf-submit" id="cf-submit-btn">
-              <span>Send Message</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            </button>
-            <div class="cf-success" id="cf-success">✅ Message sent! I'll reply within 24 hours.</div>
-          </form>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="Project inquiry, collaboration…">
         </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-inner">
-          <div class="footer-logo">BKR<span class="nav-dot">.</span></div>
-          <p class="footer-copy">© 2025 B Kishore Raja. Crafted with ❤️ and lots of ☕</p>
-          <div class="footer-socials">
-            <a href="https://www.linkedin.com/in/kishore-raja-4591622b1" target="_blank" rel="noopener noreferrer" id="f-linkedin" aria-label="LinkedIn">Li</a>
-            <a href="https://github.com/kishore123-max" target="_blank" rel="noopener noreferrer" id="f-github" aria-label="GitHub">Gh</a>
-          </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me about your project…" required></textarea>
         </div>
-      </div>
-    </footer>
+        <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-  </div><!-- end .portfolio -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">BKR<span>.</span></div>
+  <p>© 2024 B Kishore Raja. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#" title="Twitter">𝕏</a>
+    <a href="#" title="LinkedIn">in</a>
+    <a href="#" title="Dribbble">◉</a>
+    <a href="#" title="Behance">Be</a>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script>
+  /* Scroll reveal */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* Active nav */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  });
+
+  /* Form submit */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Sent! ✓';
+    btn.style.background = 'linear-gradient(135deg,#4ade80,#22c55e)';
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+</script>
 </body>
 </html>
